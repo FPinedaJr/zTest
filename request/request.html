@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Incoming Request - DoRA</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+</head>
+
+<body class="bg-gray-600 font-[Poppins]">
+  <span class="absolute text-white text-4xl top-5 left-4 cursor-pointer" onclick="Openbar()">
+    <i class="bi bi-filter-left px-2 bg-gray-900 rounded-md"></i>
+  </span>
+
+  <div class="sidebar fixed top-0 bottom-0 lg:left-0 left-[-330px] duration-1000 p-2 w-[330px] overflow-y-scroll text-center bg-gray-900 shadow h-screen">
+    <div class="text-gray-100 text-xl">
+      <div class="p-2.5 mt-1 flex items-center rounded-md ">
+        <img src="logo.png" alt="logo" class="bi bi-app-indicator px-2 py-1 bg-none rounded-md w-20 h-auto">
+        <h1 class="text-[30px] ml-3 text-gray-200 font-bold whitespace-nowrap">Requests</h1>
+        <i class="bi bi-x ml-3 cursor-pointer lg:hidden" onclick="Openbar()"></i>
+      </div>
+      <hr class="my-2 text-gray-600">
+
+      <div>
+        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  bg-gray-700">
+          <i class="bi bi-search text-sm"></i>
+          <input class="text-[15px] ml-4 w-full bg-transparent focus:outline-none" placeholder="Search" />
+        </div>
+
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-orange-600">
+          <i class="bi bi-house-door-fill"></i>
+          <span class="text-[15px] ml-4 text-gray-200">Home</span>
+        </div>
+
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-orange-600">
+          <i class="bi bi-archive-fill"></i>
+          <span class="text-[15px] ml-4 text-gray-200">Archived</span>
+        </div>
+
+        <hr class="my-4 text-gray-600">
+
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-orange-600" onclick="dropTOR()">
+          <span class="text-sm rotate-90" id="tor_arrow">
+            <i class="bi bi-chevron-right"></i>
+          </span>
+          <div class="flex justify-between w-full items-center">
+            <span class="text-[15px] ml-4 text-gray-200">Transcript of Record</span>
+            <div class="bg-gray-600 rounded-full px-2">
+              <span class="text-sm text-gray-200" id="tor-count">4</span>
+            </div>
+          </div>
+        </div>
+        <div class="leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto hidden" id="tor_list">
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">PINEDA, Fernando</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">HEREDERO, Carlos</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">YNCIONG, Kyle</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">ESTEBAN, Jian</h1>
+        </div>
+        
+        
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-orange-600" onclick="dropHD()">
+          <span class="text-sm rotate-90" id="hd_arrow">
+            <i class="bi bi-chevron-right"></i>
+          </span>
+          <div class="flex justify-between w-full items-center">
+            <span class="text-[15px] ml-4 text-gray-200">Honorable Dismissal</span>
+            <div class="bg-gray-600 rounded-full px-2">
+              <span class="text-sm text-gray-200" id="hd-count">69</span>
+            </div>
+          </div>
+        </div>
+        <div class="leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto hidden" id="hd_list">
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">ESCANO, Lewel</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">AMITA, kevin</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">REGALO, Martin</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">CALUNA, Conrad</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">BALAJADIA, Aric</h1>
+        </div>
+        
+        
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-orange-600" onclick="dropDIPLO()">
+          <span class="text-sm rotate-90" id="diplo_arrow">
+            <i class="bi bi-chevron-right"></i>
+          </span>
+          <div class="flex justify-between w-full items-center">
+            <span class="text-[15px] ml-4 text-gray-200">Diploma</span>
+            <div class="bg-gray-600 rounded-full px-2">
+              <span class="text-sm text-gray-200" id="diplo_count">11</span>
+            </div>
+          </div>
+        </div>
+        <div class="leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto hidden" id="diplo_list">
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">MACALINAO, Rafael</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">REALUBIT, Karen</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">CAPUNO, Ronald</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">VELASCO, Darwin</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">COLOQUIT, Rolando</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">ENGRESSO, Kyle</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">DOMINGO, Ken</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">JERESANO, Wynne</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">AUSTRIA, Michael</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">TABANG, Jaymar</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">ALIE, Dale</h1>
+        </div>
+        
+        
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-orange-600" onclick="dropCERT()">
+          <span class="text-sm rotate-90" id="cert_arrow">
+            <i class="bi bi-chevron-right"></i>
+          </span>
+          <div class="flex justify-between w-full items-center">
+            <span class="text-[15px] ml-4 text-gray-200">Certifications</span>
+            <div class="bg-gray-600 rounded-full px-2">
+              <span class="text-sm text-gray-200" id="cert_count">6</span>
+            </div>
+          </div>
+        </div>
+        <div class="leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto hidden" id="cert_list">
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">MANZANO, Marcelo</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">TORREFIEL, Michael</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">SAAVEDRA, Nowell</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">SOLIDUM, Marc</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">VILLAREAL, Mark</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">DELA CRUZ, Juan Carlos</h1>
+        </div>
+        
+        
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-orange-600" onclick="dropCOG()">
+          <span class="text-sm rotate-90" id="cog_arrow">
+            <i class="bi bi-chevron-right"></i>
+          </span>
+          <div class="flex justify-between w-full items-center">
+            <span class="text-[15px] ml-4 text-gray-200">Certificate of Grades</span>
+            <div class="bg-gray-600 rounded-full px-2">
+              <span class="text-sm text-gray-200" id="cog_count">12345</span>
+            </div>
+          </div>
+        </div>
+        <div class="leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto hidden" id="cog_list">
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">PINEDA, Fernando</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">PONCE, Crishel</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">MAGBANUA, Jamaica</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">MANZANO, Marcelo</h1>
+
+        </div>
+        
+        
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-orange-600" onclick="dropCOT()">
+          <span class="text-sm rotate-90" id="cot_arrow">
+            <i class="bi bi-chevron-right"></i>
+          </span>
+          <div class="flex justify-between w-full items-center">
+            <span class="text-[15px] ml-4 text-gray-200">Certificate of Transfer</span>
+            <div class="bg-gray-600 rounded-full px-2">
+              <span class="text-sm text-gray-200" id="cot_count">1234567</span>
+            </div>
+          </div>
+        </div>
+        <div class="leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto hidden" id="cot_list">
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">VIGONTE, Vincent</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">ALA, Christian</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">MAGBANUA, Jamaica</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">PINEDA, Fernando Jr.</h1>
+          <h1 class="cursor-pointer pl-7 hover:bg-gray-700 rounded-md mt-1">PONCE, Crishel</h1>
+        </div>
+
+
+        <hr class="my-4 text-gray-600">
+        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-orange-600">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span class="text-[15px] ml-4 text-gray-200">Logout</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function dropTOR() {
+      $('#tor_list').toggleClass('hidden');
+      $('#tor_arrow').toggleClass('rotate-0');
+    }
+    
+    function dropHD() {
+      $('#hd_list').toggleClass('hidden');
+      $('#hd_arrow').toggleClass('rotate-0');
+    }
+    
+    function dropDIPLO() {
+      $('#diplo_list').toggleClass('hidden');
+      $('#diplo_arrow').toggleClass('rotate-0');
+    }
+
+    function dropCERT() {
+      $('#cert_list').toggleClass('hidden');
+      $('#cert_arrow').toggleClass('rotate-0');
+    }
+    
+    function dropCOG() {
+      $('#cog_list').toggleClass('hidden');
+      $('#cog_arrow').toggleClass('rotate-0');
+    }
+    
+    function dropCOT() {
+      $('#cot_list').toggleClass('hidden');
+      $('#cot_arrow').toggleClass('rotate-0');
+    }
+
+    function Openbar() {
+      $('.sidebar').toggleClass('left-[-330px]');
+    }
+  </script>
+</body>
+
+</html>
