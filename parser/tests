@@ -1,0 +1,23 @@
+
+
+"(X * Y * Z + X * Y * !Z + X * !Y * Z + !X * Y * Z + !X * !Y * Z)" # "XYZ + XY(!Z) +  X(!Y)Z + (!X)YZ + (!XY)Z"
+"(X * Y + !X * Y)" # XY + (!X)Y
+"(X * !Y * Z + !X * !Y * Z + !X * !Y * !Z + X * !Y * !Z)" # X(!Y)Z + !(XY)Z + !(XYZ) + X!(YZ)
+"(X * !Y * Z + !X * Y * Z + X * Y * !Z + X * Y * Z)" # X(!Y)Z + (!X)YZ 
+"(X * !Y * Z + !X * Y * Z + !X * Y * !Z + X * Y * !Z)"
+"(X * !Y + !X * !Y + Y * Z)"
+"(X * !Y * Z + !X * Y * !Z + X * Y * !Z)"
+"(X * Y * !Z + X * Y * Z + X * !Y * Z + !X * !Y * Z)"
+"(X * !Y * Z + X * Y * Z + !X * Y * Z + !X * !Y * Z)"
+"(!X * Y * Z + X * !Y * Z + X * Y * Z + !X * !Y * Z)"
+"(!X * Y * Z + !X * !Y * Z + X * Y * Z + !X * Y * Z)"
+"(X * (!Y * Z) + (!X * Y) * Z)"
+"((X * Y) * Z + X * (!Y * Z))"
+"(X * (Y * Z) + (!X * Y) * Z)"
+"((X * Y) * Z + (!X * Y) * Z)"
+"((!X * Y) * Z + (X * !Y) * Z)"
+"((!X * Y) * Z + (!X * !Y) * Z)"
+"(X * (!Y * Z) + !X * (Y * Z))"
+"(!X * (Y * Z) + !X * (!Y * Z))"
+"(X * (!Y * Z) + !X * (!Y * Z))" # X((!Y)Z) + (!X)((!Y)Z)
+
