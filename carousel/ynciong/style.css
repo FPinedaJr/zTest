@@ -1,0 +1,119 @@
+*, *::before, *::after {
+    margin: 0;
+    box-sizing: border-box;
+
+    /* outline: auto;  */
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: whitesmoke;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: .75rem;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+button[hidden] {
+    visibility: hidden;
+}
+
+.carousel {
+    margin: 0 auto;
+}
+
+.carousel__row-one {
+    display: flex;
+    width: 100%;
+}
+
+.carousel__button {
+    display: inline-block;
+    margin: 10px 20px;
+    font-size: 60px;
+}
+
+button i.fa-solid {
+    color: gray;
+}
+
+button i.fa-solid:hover {
+    cursor: pointer;
+    color: black;
+    text-shadow: 0 0 4px gray;
+}
+
+.carousel__contents-container {
+    display: inline-block;
+    height: 300px;
+    width: 20vw;
+    border-radius: 15px;
+    border: 2px solid gray;
+    overflow: hidden;
+}
+
+.carousel__contents-container:hover {
+    border-color: black;
+}
+
+.carousel__contents {
+    position: relative;
+    padding-left: 0;
+    width: 100% ;
+    height: auto;
+}
+
+.carousel__slide {
+    position: absolute;
+    list-style-type: none;
+    width: inherit;
+    height: auto;
+}
+
+.carousel__slide > a {
+    display: block;
+    height: inherit;
+    width: inherit;
+}
+
+.carousel__slide img {
+    object-fit: cover;
+    height: inherit;
+    width: inherit;
+}
+
+.carousel__row-two {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.carousel__dots {
+    display: flex;
+    justify-content: center;
+    width: inherit;
+}
+
+.carousel__dot {
+    margin: 0 5px;
+    padding: 0;
+}
+
+.carousel__dot i {
+    color: gray;
+}
+
+button.is-selected i {
+    color: black;
+}
+
+button i.fa-solid:hover, .carousel__contents-container:hover, .carousel__dot i:hover {
+    transition: all 200ms ease-out;
+}

@@ -1,0 +1,62 @@
+<!-- 
+    From #045...
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/89a2f54080.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>My Social Accounts</h1>
+    <div class="carousel">
+        <div class="carousel__row-one">
+            <!-- hidden attribute is not working, I have to specify pa sa CSS file kung ano gagawin niyaa -->
+            <button class="carousel__button prev-button" hidden> 
+                <i class="fa-solid fa-caret-left"></i>
+            </button>
+            <div class="carousel__contents-container">
+                <ul class="carousel__contents">
+                    <li class="carousel__slide is-selected">
+                        <a href="https://web.facebook.com/uk.ynciong24" target="_blank" rel="noopener noreferrer">
+                            <img src="img/test1.png" alt="Facebook Logo">
+                        </a>
+                    </li>
+                    <li class="carousel__slide">
+                        <a href="https://www.linkedin.com/in/uzzielkyle/" target="_blank" rel="noopener noreferrer">
+                            <img src="img/test2.png" alt="LinkedIn Logo">
+                        </a>
+                    </li>
+                    <li class="carousel__slide">
+                        <a href="https://github.com/UzziKyle" target="_blank" rel="noopener noreferrer">
+                            <img src="img/test3.png" alt="GitHub Logo">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <button class="carousel__button next-button">
+                <i class="fa-solid fa-caret-right"></i>
+            </button>
+        </div>
+        <div class="carousel__row-two">
+            <div class="carousel__dots">
+                <button class="carousel__dot is-selected">
+                    <i class="fa-solid fa-circle"></i>
+                </button>
+                <button class="carousel__dot">
+                    <i class="fa-solid fa-circle"></i>
+                </button>
+                <button class="carousel__dot">
+                    <i class="fa-solid fa-circle"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

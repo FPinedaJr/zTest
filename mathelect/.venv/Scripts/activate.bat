@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\User\xX-code-Xx\mathelect\.venv
+set VIRTUAL_ENV=C:\Users\User\xX-code-Xx\repos\zTest\mathelect\.venv
 
 if not defined PROMPT set PROMPT=$P$G
 

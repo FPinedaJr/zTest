@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Social Accounts</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/89a2f54080.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-whitesmoke flex justify-center items-center flex-col gap-6 font-sans">
+    <h1>My Social Accounts</h1>
+    <div class="carousel">
+        <div class="flex items-center justify-center space-x-6">
+            <button class="carousel__button prev-button hidden">
+                <i class="fas fa-caret-left text-gray-500 text-3xl"></i>
+            </button>
+            <div class="carousel__contents-container w-80 border-2 border-gray-500 rounded-lg overflow-hidden">
+                <ul class="carousel__contents relative">
+                    <li class="carousel__slide is-selected">
+                        <a href="https://web.facebook.com/uk.ynciong24" target="_blank" rel="noopener noreferrer">
+                            <img src="img/test1.png" alt="Facebook Logo">
+                        </a>
+                    </li>
+                    <li class="carousel__slide">
+                        <a href="https://www.linkedin.com/in/uzzielkyle/" target="_blank" rel="noopener noreferrer">
+                            <img src="img/test2.png" alt="LinkedIn Logo">
+                        </a>
+                    </li>
+                    <li class="carousel__slide">
+                        <a href="https://github.com/UzziKyle" target="_blank" rel="noopener noreferrer">
+                            <img src="img/test3.png" alt="GitHub Logo">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <button class="carousel__button next-button">
+                <i class="fas fa-caret-right text-gray-500 text-3xl"></i>
+            </button>
+        </div>
+        <div class="flex justify-center mt-6">
+            <button class="carousel__dot is-selected">
+                <i class="fas fa-circle text-gray-500"></i>
+            </button>
+            <button class="carousel__dot">
+                <i class="fas fa-circle text-gray-500"></i>
+            </button>
+            <button class="carousel__dot">
+                <i class="fas fa-circle text-gray-500"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+$(document).ready(function() {
+    const $carousel = $('.carousel');
+    const $prevButton = $carousel.find('.prev-button');
+    const $nextButton = $carousel.find('.next-button');
+    const $contents = $carousel.find('.carousel__contents');
+    const $dotsContainer = $carousel.find('.carousel__dots');
+
+    $prevButton.on('click', function() {
+        const $currentSlide = $contents.find('.is-selected');
+        const $prevSlide = $currentSlide.prev();
+        const $currentDot = $dotsContainer.find('.is-selected');
+        const $prevDot = $currentDot.prev();
+        const destination = $prevSlide.css('left');
+
+        $contents.css('left', '-' + destination);
+
+        $currentSlide.removeClass('is-selected');
+        $prevSlide.addClass('is-selected');
+        $currentDot.removeClass('is-selected');
+        $prevDot.addClass('is-selected');
+
+        if (!$prevSlide.prev().length) {
+            $prevButton.attr('hidden', true);
+        }
+
+        $nextButton.removeAttr('hidden');
+    });
+
+    $nextButton.on('click', function() {
+        const $currentSlide = $contents.find('.is-selected');
+        const $nextSlide = $currentSlide.next();
+        const $currentDot = $dotsContainer.find('.is-selected');
+        const $nextDot = $currentDot.next();
+        const destination = $nextSlide.css('left');
+
+        $contents.css('left', '-' + destination);
+
+        $currentSlide.removeClass('is-selected');
+        $nextSlide.addClass('is-selected');
+        $currentDot.removeClass('is-selected');
+        $nextDot.addClass('is-selected');
+
+        if (!$nextSlide.next().length) {
+            $nextButton.attr('hidden', true);
+        }
+
+        $prevButton.removeAttr('hidden');
+    });
+
+    $dotsContainer.on('click', '.carousel__dot', function() {
+        const $dot = $(this);
+        const dotIndex = $dotsContainer.find('.carousel__dot').index($dot);
+        const $slideToShow = $contents.find('.carousel__slide').eq(dotIndex);
+        const destination = $slideToShow.css('left');
+
+        $contents.css('left', '-' + destination);
+
+        const $currentSlide = $contents.find('.is-selected');
+
+        $currentSlide.removeClass('is-selected');
+        $slideToShow.addClass('is-selected');
+
+        if (!$slideToShow.next().length) {
+            $nextButton.attr('hidden', true);
+            $prevButton.removeAttr('hidden');
+        } else if (!$slideToShow.prev().length) {
+            $prevButton.attr('hidden', true);
+            $nextButton.removeAttr('hidden');
+        } else {
+            $prevButton.removeAttr('hidden');
+            $nextButton.removeAttr('hidden');
+        }
+
+        $dotsContainer.find('.carousel__dot').removeClass('is-selected');
+        $dot.addClass('is-selected');
+    });
+
+    const slideWidth = $contents.find('.carousel__slide').eq(0).outerWidth();
+
+    $contents.find('.carousel__slide').each(function(index) {
+        $(this).css('left', slideWidth * index + 'px');
+    });
+});
+
+    </script>
+</body>
+</html>
