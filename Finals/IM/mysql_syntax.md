@@ -10,7 +10,7 @@ FROM table_name;
 ```sql
 SELECT * 
 FROM table_name;
-```
+``` 
 
 #### WHERE Clause
 - Filters records that fulfill a specified condition:
