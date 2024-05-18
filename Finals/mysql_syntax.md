@@ -493,6 +493,7 @@ DROP VIEW view_name;
 ```sql
 SELECT NOW();
 SELECT CURDATE();
+SELECT CURTIME();
 SELECT DATE_ADD(date, INTERVAL value unit);
 ```
 
@@ -604,6 +605,8 @@ xml
 cursor
 table
 ```
+- **Cursor**: Allows traversal over result sets in SQL for row-by-row processing.
+- **Table**: Variable holding result sets within a script or stored procedure for further manipulation.
 
 ### SQL Functions
 
