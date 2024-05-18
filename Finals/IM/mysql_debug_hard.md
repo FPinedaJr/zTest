@@ -23,7 +23,7 @@
 | 2          | Supplier B   |
 | 3          | Supplier C   |
 
-### Complex Query with Errors
+### Query
 
 ```sql
 SELECT p.ProductID, p.ProductName, p.UnitPrice, c.CategoryName, s.SupplierName, p.UnitsInStock, p.DateAdded, p.Discontinued

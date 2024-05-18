@@ -7,7 +7,7 @@
 | 2      | Smartphone  | 2024-05-02 | 3        | 800.00    |
 | 3      | Tablet      | 2024-05-03 | 2        | 500.00    |
 
-**Long Query:**
+**Query:**
 
 ```sql
 SELECT ProductName, 
