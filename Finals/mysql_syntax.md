@@ -148,7 +148,6 @@ WHERE column_name NOT BETWEEN value1 AND value2;
   SELECT column_name(s) 
   FROM table_name AS alias_name;
   ```
-Sure, let's elaborate on the different types of JOIN operations using sample tables and corresponding SQL queries. We'll use two tables, `Employees` and `Departments`, and illustrate the output for each type of join.
 
 ### Sample Tables
 
